@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zepto Online Shopping</title>
+    <style>
+        body{
+            background-color: rgb(245, 216, 245);
+        }
+        .container{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content:space-around;
+        }
+        .container2{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content:center;
+        }
+        .search-bar {
+            padding: 10px;
+            width: 1000px; /* Adjust the width as needed */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(20, 1fr);  
+            gap: 10px; 
+          }
+          
+          .grid-item {
+            background-color: lightblue;
+            padding: 20px;
+            text-align: center;
+          }
+          /* Product Grid */
+        .product-container {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto; /* Allows horizontal scrolling */
+            padding: 10px;
+        }
+        /* Product Card */
+        .product-card {
+            background: white;
+            width: 200px;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        /* Discount Tag */
+        .discount {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: purple;
+            color: white;
+            padding: 5px 8px;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        .price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: gray;
+            font-size: 14px;
+            margin-left: 5px;
+        }
+
+        /* Add to Cart Button */
+        .cart-btn {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ff4081;
+            background: white;
+            color: #ff4081;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            
+        }
+
+        .cart-btn:hover {
+            background: #ff4081;
+            color: white;
+        }
+        .category-container {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding: 20px;
+        }
+        .category {
+            text-align: center;
+            width: 100px;
+        }
+        .category img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: #d4f5d4;
+            padding: 10px;
+        }
+        .category p {
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        .product-card img{
+            width: 200px;
+            height: 200px;
+            padding: 2px;
+        }
+
+          
+    </style>
+</head>
+<body>
+    <div class="container" style="background-color: rgb(242, 192, 242,0.5);">
+        <div><h1 style="color: purple;">Zepto</h1></div>
+        <div style="font-size: large;">
+            <form>
+                <label for="location">Select Location</label>
+                <select name="location" id="location" >
+                    <option value="" disabled></option>
+                </select>
+            </form>
+        </div>
+        <div>
+            <input type="text" class="search-bar" placeholder="Search for chocolates">
+        </div>
+        <div style="font-size:large;"><p>Login</p></div>
+        <div style="font-size: large;"><p>Cart</p></div>
+    </div>
+    <br><div class="container">
+        <img src="https://cdn.zeptonow.com/production/tr:w-1280,ar-3840-705,pr-true,f-auto,q-80/inventory/banner/4ea3de05-f469-4df2-9548-db9c9863dfdf.png" alt="picture">
+    </div>
+    <h1>Coffee Lovers</h1>
+    <br>
+    <div class="product-container">
+        <div class="product-card">
+            <div class="discount">40% Off</div>
+            <a href="Image1.html" target="_parent"><img src="https://cdn.zeptonow.com/production/tr:w-350,ar-5198-5198,pr-true,f-auto,q-80/cms/product_variant/833fc7f3-7c37-4391-8fe3-52b124bb4c9e.jpeg" alt="Vietnamese Cold Coffee">
+        </a><h3>Vietnamese Cold Coffee</h3>
+            <p>450ml</p>
+            <p class="price">₹189 <span class="old-price">₹319</span></p>
+            <button class="cart-btn">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <div class="discount">37% Off</div>
+            <img src="Images/SpanishCofee.webp" alt="SpanishCofee">
+            <h3>SpanishCofee.webp</h3>
+            <p>350ml</p>
+            <p class="price">₹169 <span class="old-price">₹269</span></p>
+            <button class="cart-btn">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <div class="discount">47% Off</div>
+            <img src="Images/Americano.webp" alt="Americano">
+            <h3>Americano</h3>
+            <p>250ml</p>
+            <p class="price">₹129 <span class="old-price">₹239</span></p>
+            <button class="cart-btn">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <div class="discount">50% Off</div>
+            <img src="https://cdn.zeptonow.com/production/tr:w-350,ar-5146-5146,pr-true,f-auto,q-80/cms/product_variant/fd79f75d-d663-419c-a50d-16b671857495.jpeg" alt="Hazelnut Cold Coffee">
+            <h3>Hazelnut Cold Coffee</h3>
+            <p>250ml</p>
+            <p class="price">₹179 <span class="old-price">₹219</span></p>
+            <button class="cart-btn">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <div class="discount">35% Off</div>
+            <img src="https://cdn.zeptonow.com/production/tr:w-350,ar-4755-4755,pr-true,f-auto,q-80/cms/product_variant/679cde44-80d2-4c94-ac98-ffbf70dff81d.jpeg" alt="Classic Cold Coffee">
+            <h3>Classic Cold Coffee</h3>
+            <p>150ml</p>
+            <p class="price">₹139 <span class="old-price">₹119</span></p>
+            <button class="cart-btn">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <div class="discount">36% Off</div>
+            <img src="https://cdn.zeptonow.com/production/tr:w-350,ar-5198-5198,pr-true,f-auto,q-80/cms/product_variant/5c7bb3d5-0133-4f5f-b94d-da0c0487b186.jpeg" alt="Iced Americano">
+            <h3>Iced Americano</h3>
+            <p>350ml</p>
+            <p class="price">₹129 <span class="old-price">₹119</span></p>
+            <button class="cart-btn">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <div class="discount">41% Off</div>
+            <img src="https://cdn.zeptonow.com/production/tr:w-350,ar-4523-4523,pr-true,f-auto,q-80/cms/product_variant/4141ea67-1e91-4b53-99f7-ed0dcea226e9.jpeg" alt="Hazelnut Cappuccino">
+            <h3>Hazelnut Cappuccino</h3>
+            <p>450ml</p>
+            <p class="price">₹189 <span class="old-price">₹319</span></p>
+            <button class="cart-btn">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <div class="discount">45% Off</div>
+            <img src="https://cdn.zeptonow.com/production/tr:w-350,ar-4615-4615,pr-true,f-auto,q-80/cms/product_variant/f7f093a8-5276-4c80-a749-fabe83570080.jpeg" alt="Classic Cold Coffee">
+            <h3>Classic Cold Coffee</h3>
+            <p>150ml</p>
+            <p class="price">₹159 <span class="old-price">₹219</span></p>
+            <button class="cart-btn">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <div class="discount">46% Off</div>
+            <img src="https://cdn.zeptonow.com/production/tr:w-350,ar-4615-4615,pr-true,f-auto,q-80/cms/product_variant/7dc3784d-50ea-4d10-86bf-e7703de5179a.jpeg" alt="Hazelnut Cappuccino">
+            <h3>Hazelnut Cappuccino</h3>
+            <p>250ml</p>
+            <p class="price">₹169 <span class="old-price">₹219</span></p>
+            <button class="cart-btn">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <div class="discount">37% Off</div>
+            <img src="https://cdn.zeptonow.com/production/tr:w-350,ar-4523-4523,pr-true,f-auto,q-80/cms/product_variant/4141ea67-1e91-4b53-99f7-ed0dcea226e9.jpeg" alt="Cappuccino">
+            <h3>Cappuccino</h3>
+            <p>150ml</p>
+            <p class="price">₹189 <span class="old-price">₹419</span></p>
+            <button class="cart-btn">Add to Cart</button>
+        </div>    
+        <div class="product-card">
+            <div class="discount">47% Off</div>
+            <img src="https://cdn.zeptonow.com/production/tr:w-400,ar-3009-3009,pr-true,f-auto,q-80/cms/product_variant/d63e9d90-b39c-46d0-a6d1-62bc9108df25.jpeg" alt="Latte">
+            <h3>Latte</h3>
+            <p>350ml</p>
+            <p class="price">₹199 <span class="old-price">₹299</span></p>
+            <button class="cart-btn">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <div class="discount">49% Off</div>
+            <img src="https://cdn.zeptonow.com/production/tr:w-400,ar-2523-2523,pr-true,f-auto,q-80/cms/product_variant/692e3707-d006-4f23-b1ba-5ef09542abb1.jpeg" alt="Yuzu Coffee">
+            <h3>Yuzu Coffee</h3>
+            <p>450ml</p>
+            <p class="price">₹189 <span class="old-price">₹319</span></p>
+            <button class="cart-btn">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <div class="discount">33% Off</div>
+            <img src="https://cdn.zeptonow.com/production/tr:w-400,ar-5198-5198,pr-true,f-auto,q-80/cms/product_variant/c4b703b2-6c5c-4432-b9bc-f6c6ec450260.jpeg" alt="Signature Eclair Toffee Shake">
+            <h3>Signature Eclair Toffee </h3>
+            <p>650ml</p>
+            <p class="price">₹289 <span class="old-price">₹319</span></p>
+            <button class="cart-btn">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <div class="discount">32% Off</div>
+            <img src="https://cdn.zeptonow.com/production/tr:w-400,ar-5198-5198,pr-true,f-auto,q-80/cms/product_variant/67fb9134-a9a0-48ee-a879-1f2d5a2a9d4e.jpeg" alt="Hot Chocolate">
+            <h3>Hot Chocolate</h3>
+            <p>150ml</p>
+            <p class="price">₹189 <span class="old-price">₹319</span></p>
+            <button class="cart-btn">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <div class="discount">39% Off</div>
+            <img src="https://cdn.zeptonow.com/production/tr:w-400,ar-5094-5094,pr-true,f-auto,q-80/cms/product_variant/4b912441-3dbd-41ee-adae-5ea51a9cbdc4.jpeg" alt="Garlic Bread With Cheese Dip & Classic Cold Coffee Combo">
+            <h3>Garlic Bread coffee</h3>
+            <p>250ml</p>
+            <p class="price">₹159 <span class="old-price">₹319</span></p>
+            <button class="cart-btn">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <div class="discount">50% Off</div>
+            <img src="https://cdn.zeptonow.com/production/tr:w-400,ar-520-520,pr-true,f-auto,q-80/cms/product_variant/173cb059-d6e8-4621-92cf-f95370edff5c.jpg" alt="Butter Croissant & Latte Combo">
+            <h3>Butter Croissant coffee</h3>
+            <p>150ml</p>
+            <p class="price">₹119 <span class="old-price">₹319</span></p>
+            <button class="cart-btn">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <div class="discount">40% Off</div>
+            <img src="https://cdn.zeptonow.com/production/tr:w-400,ar-5198-5198,pr-true,f-auto,q-80/cms/product_variant/92790524-02e7-4ca3-8aee-122d2ddc655e.jpeg" alt="Classic Cold Coffee(1pc) & Mom Roasted Makhana Peri Peri(52gms) Combo">
+            <h3>Classic Cold Coffee</h3>
+            <p>100ml</p>
+            <p class="price">₹189 <span class="old-price">₹276</span></p>
+            <button class="cart-btn">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <div class="discount">42% Off</div>
+            <img src="https://cdn.zeptonow.com/production/tr:w-400,ar-4348-4348,pr-true,f-auto,q-80/cms/product_variant/03dec151-460d-485e-ade8-bc2ea74c42a8.jpeg" alt="Filter Coffee">
+            <h3>Filter Coffee</h3>
+            <p>150ml</p>
+            <p class="price">₹129 <span class="old-price">₹319</span></p>
+            <button class="cart-btn">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <div class="discount">55% Off</div>
+            <img src="https://cdn.zeptonow.com/production/tr:w-400,ar-4615-4615,pr-true,f-auto,q-80/cms/product_variant/3d3c7b5f-5c45-477d-9706-0ef2cf64d7e0.jpeg" alt="French Vanilla Latte">
+            <h3>French Vanilla Latte</h3>
+            <p>450ml</p>
+            <p class="price">₹189 <span class="old-price">₹319</span></p>
+            <button class="cart-btn">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <div class="discount">52% Off</div>
+            <img src="https://cdn.zeptonow.com/production/tr:w-400,ar-5198-5198,pr-true,f-auto,q-80/cms/product_variant/833fc7f3-7c37-4391-8fe3-52b124bb4c9e.jpeg" alt="Vietnamese Cold Coffee">
+            <h3>Vietnamese Cold Coffee</h3>
+            <p>250ml</p>
+            <p class="price">₹189 <span class="old-price">₹219</span></p>
+            <button class="cart-btn">Add to Cart</button>
+        </div>
+    </div>
+      <br><h1>Elevate Yourself</h1>
+      <div class="product-container">
+        <div class="product-card">
+            <div class="discount">37% Off</div>
+            <img src="https://cdn.zeptonow.com/production/tr:w-350,ar-1000-1000,pr-true,f-auto,q-80/cms/product_variant/f27280c0-b6d2-4955-97e2-79e9e0113cd9.jpeg" alt="SpanishCofee">
+            <h3>Portronics Toad 101 Wired Optical Mouse With 1200 DPI | 1.25 m Cable | 3 Million Click Life - Black</h3>
+            <p>350ml</p>
+            <p class="price">₹169 <span class="old-price">₹269</span></p>
+            <button class="cart-btn">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <div class="discount">47% Off</div>
+            <img src="https://cdn.zeptonow.com/production/tr:w-350,ar-1000-1000,pr-true,f-auto,q-80/inventory/product/c0b348d8-9b48-4878-ac72-914ebb1e11a6-/tmp/20230918-1639481.jpeg" alt="Americano">
+            <h3>Lifelong Llm270 Head and Body Massager - Full Body Pain Relief | Deep Tissue Massager</h3>
+            <p>250ml</p>
+            <p class="price">₹129 <span class="old-price">₹239</span></p>
+            <button class="cart-btn">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <div class="discount">50% Off</div>
+            <img src="https://cdn.zeptonow.com/production/tr:w-350,ar-1000-1000,pr-true,f-auto,q-80/cms/product_variant/5f7450f8-9059-4677-9b07-ae52d8e78f9a.jpeg" alt="Hazelnut Cold Coffee">
+            <h3>Portronics Konnect B+ POR 1392 8 Pin USB Cable - Black | Nylon Braided</h3>
+            <p>250ml</p>
+            <p class="price">₹179 <span class="old-price">₹219</span></p>
+            <button class="cart-btn">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <div class="discount">35% Off</div>
+            <img src="https://cdn.zeptonow.com/production/tr:w-350,ar-1000-1000,pr-true,f-auto,q-80/cms/product_variant/fedc090f-fe03-495b-993a-0fe21cccb01d.jpeg" alt="Classic Cold Coffee">
+            <h3>Portronic Laptop Stand</h3>
+            <p>150ml</p>
+            <p class="price">₹139 <span class="old-price">₹119</span></p>
+            <button class="cart-btn">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <div class="discount">36% Off</div>
+            <img src="https://cdn.zeptonow.com/production/tr:w-350,ar-1000-1000,pr-true,f-auto,q-80/cms/product_variant/9bbb0597-3140-45df-aa35-688dd59e831a.jpeg" alt="Iced Americano">
+            <h3>Portronics Konnect B Type C Cable - Black | Supports up to 65W Fast Charging | Compatible with USB Type C Devices</h3>
+            <p>350ml</p>
+            <p class="price">₹129 <span class="old-price">₹119</span></p>
+            <button class="cart-btn">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <div class="discount">41% Off</div>
+            <img src="https://cdn.zeptonow.com/production/tr:w-350,ar-1000-1000,pr-true,f-auto,q-80/cms/product_variant/a9d6c7fe-65c6-44e7-98c1-fc1ac41fa29a.jpeg" alt="Hazelnut Cappuccino">
+            <h3>Portronics Konnect A Trio 3-In-1 USB Cable - Black | Braided and High-Speed | Fast Charging</h3>
+            <p>450ml</p>
+            <p class="price">₹189 <span class="old-price">₹319</span></p>
+            <button class="cart-btn">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <div class="discount">45% Off</div>
+            <img src="https://cdn.zeptonow.com/production/tr:w-350,ar-1000-1000,pr-true,f-auto,q-80/cms/product_variant/f279c1c7-a764-4889-9012-728a4ef3f3f6.jpeg" alt="Classic Cold Coffee">
+            <h3>Lifelong Llm09 Mini Head And Body Massager, Beige And Brown</h3>
+            <p>150ml</p>
+            <p class="price">₹159 <span class="old-price">₹219</span></p>
+            <button class="cart-btn">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <div class="discount">46% Off</div>
+            <img src="https://cdn.zeptonow.com/production/tr:w-350,ar-1000-1000,pr-true,f-auto,q-80/cms/product_variant/9b46a2ae-be71-42d1-95f2-ad71f5e32de7.jpeg" alt="Hazelnut Cappuccino">
+            <h3>Nu Republic Usb Type C Cable 1 M Blaze Supersonic 65W Type-C To Type-C Fast Charge Cable</h3>
+            <p>250ml</p>
+            <p class="price">₹169 <span class="old-price">₹219</span></p>
+            <button class="cart-btn">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <div class="discount">37% Off</div>
+            <img src="https://cdn.zeptonow.com/production/tr:w-350,ar-980-980,pr-true,f-auto,q-80/cms/product_variant/b96534b0-0297-4a29-ba6b-29f20ac44aa4.jpeg" alt="Cappuccino">
+            <h3>Goldmedal G:Dial extension cord -5 Meters Cable</h3>
+            <p>150ml</p>
+            <p class="price">₹189 <span class="old-price">₹419</span></p>
+            <button class="cart-btn">Add to Cart</button>
+        </div>    
+        <div class="product-card">
+            <div class="discount">47% Off</div>
+            <img src="https://cdn.zeptonow.com/production/tr:w-350,ar-1200-1200,pr-true,f-auto,q-80/cms/product_variant/095181cc-87fd-489e-8dcd-6ddd7cbf2725.jpeg" alt="Latte">
+            <h3>Goldmedal Krysta extension cord -5 Meters cable
+            </h3>
+            <p>350ml</p>
+            <p class="price">₹199 <span class="old-price">₹299</span></p>
+            <button class="cart-btn">Add to Cart</button>
+        </div>
+        </div>
+        <br><h1>New in store</h1>
+        <div class="category-container">
+            <div class="category">
+                <img src="https://cdn.zeptonow.com/production/tr:w-336,ar-336-496,pr-true,f-auto,q-80/inventory/banner/36505655-0b0e-4b7c-abdc-92c7a230c267.png" alt="Mobile Accessories">
+                <p>Mobile Accessories</p>
+            </div>
+            <div class="category">
+                <img src="https://cdn.zeptonow.com/production/tr:w-336,ar-336-496,pr-true,f-auto,q-80/inventory/banner/f87c5de9-c5d1-4bc4-8c5f-fd8342f8dde2.png" alt="Home Appliances">
+                <p>Home Appliances</p>
+            </div>
+            <div class="category">
+                <img src="https://cdn.zeptonow.com/production/tr:w-336,ar-336-496,pr-true,f-auto,q-80/inventory/banner/b230aa9e-39d2-48cf-b70b-62b7345af476.png" alt="Eyewear">
+                <p>Eyewear & More</p>
+            </div>
+            <div class="category">
+                <img src="https://cdn.zeptonow.com/production/tr:w-336,ar-336-496,pr-true,f-auto,q-80/inventory/banner/690d68be-0302-4138-b48a-b2d2141c092a.png" alt="Blocks & Puzzles">
+                <p>Blocks & Puzzles</p>
+            </div>
+            <div class="category">
+                <img src="https://cdn.zeptonow.com/production/tr:w-336,ar-336-496,pr-true,f-auto,q-80/inventory/banner/be289cce-726b-4263-82a3-01c04168467a.png" alt="Bags & Accessories">
+                <p>Bags & Accessories</p>
+            </div>
+            <div class="category">
+                <img src="https://cdn.zeptonow.com/production/tr:w-336,ar-336-496,pr-true,f-auto,q-80/inventory/banner/22ecab4a-1793-4b4c-a125-ba3dd2869398.png" alt="Pet Treats & Toys">
+                <p>Pet Treats & Toys</p>
+            </div>
+            <div class="category">
+                <img src="https://cdn.zeptonow.com/production/tr:w-336,ar-336-496,pr-true,f-auto,q-80/inventory/banner/5c143c45-988e-4eb3-a7f8-90245c6d5e12.png" alt="Speakers & More">
+                <p>Speakers & More</p>
+            </div>
+            <div class="category">
+                <img src="https://cdn.zeptonow.com/production/tr:w-336,ar-336-496,pr-true,f-auto,q-80/inventory/banner/2a1050dd-b821-480a-8661-205fbeecaff9.png" alt="Battery Extensions">
+                <p>Battery Extensions</p>
+            </div>
+            <div class="category">
+                <img src="https://cdn.zeptonow.com/production/tr:w-336,ar-336-496,pr-true,f-auto,q-80/inventory/banner/86abb79d-0f88-47c7-814a-4f363d6f780f.png" alt="Crafts & Hobby">
+                <p>Crafts & Hobby</p>
+            </div>
+            <div class="category">
+                <img src="https://cdn.zeptonow.com/production/tr:w-336,ar-336-496,pr-true,f-auto,q-80/inventory/banner/8a2b7d4f-8e95-4f2e-9007-e65cdaafde88.png" alt="Kitchen Appliances">
+                <p>Kitchen Appliances</p>
+            </div>
+            <div class="category">
+                <img src="https://cdn.zeptonow.com/production/tr:w-336,ar-336-496,pr-true,f-auto,q-80/inventory/banner/11cbcab8-f25e-49dd-92ba-62de2f8ad7b9.png" alt="Card & Board Games">
+                <p>Card & Board Games</p>
+            </div>
+            <div class="category">
+                <img src="https://cdn.zeptonow.com/production/tr:w-336,ar-336-496,pr-true,f-auto,q-80/inventory/banner/609cfe73-8f8d-4700-bb5b-afd4c0851b7e.png" alt="Earbuds & More">
+                <p>Earbuds & More</p>
+            </div>
+            <div class="category">
+                <img src="https://cdn.zeptonow.com/production/tr:w-336,ar-336-496,pr-true,f-auto,q-80/inventory/banner/ef68d97b-5786-434b-a554-562be8b5877e.png" alt="Massagers & More">
+                <p>Massagers & More</p>
+            </div>
+        </div>
+        <br><h1>Get Your Home Needs</h1>
+        <div class="product-container">
+            <div class="product-card">
+                <div class="discount">37% Off</div>
+                <img src="https://cdn.zeptonow.com/production/tr:w-350,ar-1200-1200,pr-true,f-auto,q-80/cms/product_variant/2ad2221e-463e-4d26-a3ba-68d97a2b5c9f.jpg" alt="SpanishCofee">
+                <h3>Portronics Toad 101 Wired Optical Mouse With 1200 DPI | 1.25 m Cable | 3 Million Click Life - Black</h3>
+                <p>350ml</p>
+                <p class="price">₹169 <span class="old-price">₹269</span></p>
+                <button class="cart-btn">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <div class="discount">47% Off</div>
+                <img src="https://cdn.zeptonow.com/production/tr:w-350,ar-727-712,pr-true,f-auto,q-80/cms/product_variant/d01ed994-a2fe-4086-a250-bdbb08fdafc0.jpg" alt="Americano">
+                <h3>Lifelong Llm270 Head and Body Massager - Full Body Pain Relief | Deep Tissue Massager</h3>
+                <p>250ml</p>
+                <p class="price">₹129 <span class="old-price">₹239</span></p>
+                <button class="cart-btn">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <div class="discount">50% Off</div>
+                <img src="https://cdn.zeptonow.com/production/tr:w-350,ar-4167-4167,pr-true,f-auto,q-80/cms/product_variant/cc42ce5b-2d50-48fe-8d3f-c105c28b66e7.jpeg" alt="Hazelnut Cold Coffee">
+                <h3>Portronics Konnect B+ POR 1392 8 Pin USB Cable - Black | Nylon Braided</h3>
+                <p>250ml</p>
+                <p class="price">₹179 <span class="old-price">₹219</span></p>
+                <button class="cart-btn">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <div class="discount">35% Off</div>
+                <img src="https://cdn.zeptonow.com/production/tr:w-350,ar-1000-1000,pr-true,f-auto,q-80/cms/product_variant/257afb45-5b44-47f8-9d67-3ac02fa9c5af.jpeg" alt="Classic Cold Coffee">
+                <h3>Portronic Laptop Stand</h3>
+                <p>150ml</p>
+                <p class="price">₹139 <span class="old-price">₹119</span></p>
+                <button class="cart-btn">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <div class="discount">36% Off</div>
+                <img src="https://cdn.zeptonow.com/production/tr:w-350,ar-1000-1000,pr-true,f-auto,q-80/cms/product_variant/a9d6c7fe-65c6-44e7-98c1-fc1ac41fa29a.jpeg" alt="Iced Americano">
+                <h3>Portronics Konnect B Type C Cable - Black | Supports up to 65W Fast Charging | Compatible with USB Type C Devices</h3>
+                <p>350ml</p>
+                <p class="price">₹129 <span class="old-price">₹119</span></p>
+                <button class="cart-btn">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <div class="discount">41% Off</div>
+                <img src="https://cdn.zeptonow.com/production/tr:w-350,ar-1000-1000,pr-true,f-auto,q-80/cms/product_variant/9bbb0597-3140-45df-aa35-688dd59e831a.jpeg" alt="Hazelnut Cappuccino">
+                <h3>Portronics Konnect A Trio 3-In-1 USB Cable - Black | Braided and High-Speed | Fast Charging</h3>
+                <p>450ml</p>
+                <p class="price">₹189 <span class="old-price">₹319</span></p>
+                <button class="cart-btn">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <div class="discount">45% Off</div>
+                <img src="https://cdn.zeptonow.com/production/tr:w-350,ar-1000-1000,pr-true,f-auto,q-80/cms/product_variant/440d84da-5133-4930-93b6-8076ed6924ff.jpeg" alt="Classic Cold Coffee">
+                <h3>Lifelong Llm09 Mini Head And Body Massager, Beige And Brown</h3>
+                <p>150ml</p>
+                <p class="price">₹159 <span class="old-price">₹219</span></p>
+                <button class="cart-btn">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <div class="discount">46% Off</div>
+                <img src="https://cdn.zeptonow.com/production/tr:w-350,ar-1000-1000,pr-true,f-auto,q-80/cms/product_variant/03127f7b-ff2c-4d06-9dc4-974133a72fdf.jpeg" alt="Hazelnut Cappuccino">
+                <h3>Nu Republic Usb Type C Cable 1 M Blaze Supersonic 65W Type-C To Type-C Fast Charge Cable</h3>
+                <p>250ml</p>
+                <p class="price">₹169 <span class="old-price">₹219</span></p>
+                <button class="cart-btn">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <div class="discount">37% Off</div>
+                <img src="https://cdn.zeptonow.com/production/tr:w-350,ar-1000-1000,pr-true,f-auto,q-80/cms/product_variant/5f7450f8-9059-4677-9b07-ae52d8e78f9a.jpeg" alt="Cappuccino">
+                <h3>Goldmedal G:Dial extension cord -5 Meters Cable</h3>
+                <p>150ml</p>
+                <p class="price">₹189 <span class="old-price">₹419</span></p>
+                <button class="cart-btn">Add to Cart</button>
+            </div>    
+            <div class="product-card">
+                <div class="discount">47% Off</div>
+                <img src="https://cdn.zeptonow.com/production/tr:w-350,ar-1500-1500,pr-true,f-auto,q-80/cms/product_variant/0431f9e4-b3f7-489b-a3bc-fe7a99a2a260.jpg" alt="Latte">
+                <h3>Goldmedal Krysta extension cord -5 Meters cable</h3>
+                <p>350ml</p>
+                <p class="price">₹199 <span class="old-price">₹299</span></p>
+                <button class="cart-btn">Add to Cart</button>
+            </div>
+        </div>
+        <br><h1>Wholesome meals</h1>       
+<div class="product-container">
+    <div class="product-card">
+        <div class="discount">37% Off</div>
+        <img src="https://cdn.zeptonow.com/production/tr:w-350,ar-3181-3181,pr-true,f-auto,q-80/cms/product_variant/b3cdc92b-d828-443b-88a1-fa5e60614c8e.jpeg" alt="SpanishCofee">
+        <h3>Chicken biryani</h3>
+        <p>350ml</p>
+        <p class="price">₹169 <span class="old-price">₹269</span></p>
+        <button class="cart-btn">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <div class="discount">47% Off</div>
+        <img src="https://cdn.zeptonow.com/production/tr:w-350,ar-2400-2400,pr-true,f-auto,q-80/cms/product_variant/da3bf048-ddb0-461f-9ab2-b267475da0d7.jpeg" alt="Americano">
+        <h3>Chole Kulche</h3>
+        <p>250ml</p>
+        <p class="price">₹129 <span class="old-price">₹239</span></p>
+        <button class="cart-btn">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <div class="discount">50% Off</div>
+        <img src="https://cdn.zeptonow.com/production/tr:w-350,ar-3396-3396,pr-true,f-auto,q-80/cms/product_variant/f5d5ad7d-f9a4-4765-9e20-79f1c557c567.jpeg" alt="Hazelnut Cold Coffee">
+        <h3>Dhala makani</h3>
+        <p>250ml</p>
+        <p class="price">₹179 <span class="old-price">₹219</span></p>
+        <button class="cart-btn">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <div class="discount">35% Off</div>
+        <img src="https://cdn.zeptonow.com/production/tr:w-350,ar-4487-4487,pr-true,f-auto,q-80/cms/product_variant/0320dafe-0820-44c7-a59a-7aef807c3af1.jpeg" alt="Classic Cold Coffee">
+        <h3>Wheat chapathi</h3>
+        <p>150ml</p>
+        <p class="price">₹139 <span class="old-price">₹119</span></p>
+        <button class="cart-btn">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <div class="discount">36% Off</div>
+        <img src="https://cdn.zeptonow.com/production/tr:w-350,ar-3669-3669,pr-true,f-auto,q-80/cms/product_variant/668eaf44-3f3b-4ec3-a855-238a19a2f79e.jpeg" alt="Iced Americano">
+        <h3>Panner Tikka Masala </h3>
+        <p>350ml</p>
+        <p class="price">₹129 <span class="old-price">₹119</span></p>
+        <button class="cart-btn">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <div class="discount">41% Off</div>
+        <img src="https://cdn.zeptonow.com/production/tr:w-350,ar-3181-3181,pr-true,f-auto,q-80/cms/product_variant/fd8b22e4-959c-4353-a2f1-4461da2a75c7.jpeg" alt="Hazelnut Cappuccino">
+        <h3>Hyderabad Veg Biryani  </h3>
+        <p>450ml</p>
+        <p class="price">₹189 <span class="old-price">₹319</span></p>
+        <button class="cart-btn">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <div class="discount">45% Off</div>
+        <img src="https://cdn.zeptonow.com/production/tr:w-350,ar-3181-3181,pr-true,f-auto,q-80/cms/product_variant/ad89532c-20f6-4964-89a4-c634e5738dca.jpeg" alt="Classic Cold Coffee">
+        <h3>Chicken Ambur biryani</h3>
+        <p>150ml</p>
+        <p class="price">₹159 <span class="old-price">₹219</span></p>
+        <button class="cart-btn">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <div class="discount">46% Off</div>
+        <img src="https://cdn.zeptonow.com/production/tr:w-350,ar-1058-1058,pr-true,f-auto,q-80/cms/product_variant/02842483-d837-4562-8b6d-6a312f4b8e97.jpeg" alt="Hazelnut Cappuccino">
+        <h3>Rajma Masala</h3>
+        <p>250ml</p>
+        <p class="price">₹169 <span class="old-price">₹219</span></p>
+        <button class="cart-btn">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <div class="discount">37% Off</div>
+        <img src="https://cdn.zeptonow.com/production/tr:w-350,ar-3670-3670,pr-true,f-auto,q-80/cms/product_variant/d042d1ce-33d9-43d5-8d0e-db255ad56526.jpeg" alt="Cappuccino">
+        <h3>Butter Chicken</h3>
+        <p>150ml</p>
+        <p class="price">₹189 <span class="old-price">₹419</span></p>
+        <button class="cart-btn">Add to Cart</button>
+    </div>    
+    <div class="product-card">
+        <div class="discount">47% Off</div>
+        <img src="https://cdn.zeptonow.com/production/tr:w-350,ar-3181-3181,pr-true,f-auto,q-80/cms/product_variant/ad89532c-20f6-4964-89a4-c634e5738dca.jpeg" alt="Latte">
+        <h3>Chole</h3>
+        <p>350ml</p>
+        <p class="price">₹199 <span class="old-price">₹299</span></p>
+        <button class="cart-btn">Add to Cart</button>
+    </div>
+</div>
+<br><h1>New In Store</h1>
+<div class="product-container">
+    <div class="product-card">
+        <div class="discount">37% Off</div>
+        <img src="https://cdn.zeptonow.com/production/tr:w-350,ar-1500-1500,pr-true,f-auto,q-80/cms/product_variant/65550f8a-f4c3-4d71-abd9-c1fde55b4619.jpg" alt="SpanishCofee">
+        <h3>GUBB Multifunctional Organizer Makeup Travel Bag - Pink</h3>
+        <p>350ml</p>
+        <p class="price">₹169 <span class="old-price">₹269</span></p>
+        <button class="cart-btn">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <div class="discount">47% Off</div>
+        <img src="https://cdn.zeptonow.com/production/tr:w-350,ar-1500-1500,pr-true,f-auto,q-80/cms/product_variant/6c6767b1-8840-46ce-a95b-e755c559b109.jpeg" alt="Americano">
+        <h3>Trajectory Travel Polyester Passport and Card Holder and Wallet Organiser Case</h3>
+        <p>250ml</p>
+        <p class="price">₹129 <span class="old-price">₹239</span></p>
+        <button class="cart-btn">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <div class="discount">50% Off</div>
+        <img src="https://cdn.zeptonow.com/production/tr:w-350,ar-1500-1500,pr-true,f-auto,q-80/cms/product_variant/68f68874-2238-474a-9acc-d4d9a273a52a.jpg" alt="Hazelnut Cold Coffee">
+        <h3>AGARO 1200 Watts Professional Volumizer Hair Dryer,One Step Styler, Hot Air Blow Brush for Women</h3>
+        <p>250ml</p>
+        <p class="price">₹179 <span class="old-price">₹219</span></p>
+        <button class="cart-btn">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <div class="discount">35% Off</div>
+        <img src="https://cdn.zeptonow.com/production/tr:w-350,ar-1000-1000,pr-true,f-auto,q-80/cms/product_variant/2dc25cb8-67ec-498e-873e-a83d080455c6.jpeg   " alt="Classic Cold Coffee">
+        <h3>Bombay Shaving Company Power Styler OG Beard Trimmer For Men | 2X Fast Charging | USB Type C</h3>
+        <p>150ml</p>
+        <p class="price">₹139 <span class="old-price">₹119</span></p>
+        <button class="cart-btn">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <div class="discount">36% Off</div>
+        <img src="https://cdn.zeptonow.com/production/tr:w-350,ar-1500-1500,pr-true,f-auto,q-80/cms/product_variant/77af7e13-0a1e-4011-9158-7cfb9714ce1d.jpg" alt="Iced Americano">
+        <h3>AGARO 2000 Watts Professional Hair Dryer with AC Motor, Concentrator, Diffuser,Comb,Hot and Cold Air</h3>
+        <p>350ml</p>
+        <p class="price">₹129 <span class="old-price">₹119</span></p>
+        <button class="cart-btn">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <div class="discount">41% Off</div>
+        <img src="https://cdn.zeptonow.com/production/tr:w-350,ar-1000-1000,pr-true,f-auto,q-80/cms/product_variant/2a4a8090-16d6-440b-80f4-86a843fccea6.jpeg" alt="Hazelnut Cappuccino">
+        <h3>Vega Trimmer For Men with 90 Mins Runtime Stainless Steel Blades, Black (Power Lite, VHTH-38)</h3>
+        <p>450ml</p>
+        <p class="price">₹189 <span class="old-price">₹319</span></p>
+        <button class="cart-btn">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <div class="discount">45% Off</div>
+        <img src="https://cdn.zeptonow.com/production/tr:w-350,ar-1000-1000,pr-true,f-auto,q-80/cms/product_variant/39c9678b-a8e1-4684-9869-ecb015896231.jpeg" alt="Classic Cold Coffee">
+        <h3>Ambrane 20W Dual Output Fast Charger/Adapter With Qc & Pd Technology For Iphone Android & Other Devices Multi-Layers Protection (Raap H11White)</h3>
+        <p>150ml</p>
+        <p class="price">₹159 <span class="old-price">₹219</span></p>
+        <button class="cart-btn">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <div class="discount">46% Off</div>
+        <img src="https://cdn.zeptonow.com/production/tr:w-350,ar-727-712,pr-true,f-auto,q-80/cms/product_variant/d01ed994-a2fe-4086-a250-bdbb08fdafc0.jpg" alt="Hazelnut Cappuccino">
+        <h3>Duracell 20000 mAh Power Bank - 22.5 W | Fast Charging</h3>
+        <p>250ml</p>
+        <p class="price">₹169 <span class="old-price">₹219</span></p>
+        <button class="cart-btn">Add to Cart</button>
+    </div>
+    <div class="product-card">
+        <div class="discount">37% Off</div>
+        <img src="https://cdn.zeptonow.com/production/tr:w-350,ar-1000-1000,pr-true,f-auto,q-80/cms/product_variant/63c2e42f-8f46-431c-8d8b-9de68e0bef2e.jpeg" alt="Cappuccino">
+        <h3>Vega Power Series P-1 Beard Trimmer For Men With 160 Mins Runtime & 40 Length (Green)</h3>
+        <p>150ml</p>
+        <p class="price">₹189 <span class="old-price">₹419</span></p>
+        <button class="cart-btn">Add to Cart</button>
+    </div>    
+    <div class="product-card">
+        <div class="discount">47% Off</div>
+        <img src="https://cdn.zeptonow.com/production/tr:w-350,ar-1500-1500,pr-true,f-auto,q-80/cms/product_variant/5d6bdbf5-b964-4504-8604-138a0fd7b74b.jpeg" alt="Latte">
+        <h3>boAt 10000mAh Power Bank w/ 22.5W Fast Charging & Smart IC Protection - PB300 (Carbon Black)</h3>
+        <p>350ml</p>
+        <p class="price">₹199 <span class="old-price">₹299</span></p>
+        <button class="cart-btn">Add to Cart</button>
+    </div>
+</div>
+<br><center><h1>How It Works</h1></center>
+<div class="container2">
+    <div class="product-card">
+        <img src="https://cdn.zeptonow.com/web-static-assets-prod/artifacts/12.56.1/images/pdp/place-order.svg" alt="">
+        <h4>Open the app</h4>
+        <p>Choose from over 7000 products across groceries, fresh fruits & veggies, meat, pet care, beauty items & more</p>
+    </div>
+    <div class="product-card">
+        <img src="https://cdn.zeptonow.com/web-static-assets-prod/artifacts/12.56.1/images/pdp/do-not-blink.svg" alt="">
+        <h4>Place an order</h4>
+        <p>Add your favourite items to the cart & avail the best offers</p>
+    </div>
+    <div class="product-card">
+        <img src="https://cdn.zeptonow.com/web-static-assets-prod/artifacts/12.56.1/images/pdp/enjoy.svg" alt="">
+        <h4>Get free delivery</h4>
+        <p>Experience lighting-fast speed & get all your items delivered in 10 minutes</p>
+    </div>
+</div>
+<br>
+<hr style="color:rgb(231, 225, 225)">
+<div>
+    <p><b>Popular Searches</b> : Bottle gourd | Lady finger |Potato | Lemon |Dalchini |Fennel seeds |Blueberry | Papaya |Dragon fruit</p>
+    <p><b>Brands</b> : Yakult
+        |
+        My Muse
+        |
+        Aashirvaad Atta
+        |
+        Too Yumm
+        |
+        Lays
+        |
+        Figaro Olive Oil
+        |
+        Nandini Milk
+        |
+        Amul
+        |
+        Mother Dairy Near Me
+        |
+        Fortune Oil</p>
+        <p><b>Categories</b> : Grocery
+            |
+            Curd
+            |
+            Hukka flavour
+            |
+            Paan shop near me
+            |
+            Eggs price
+            |
+            Cheese slice
+            |
+            Fresh fruits
+            |
+            Fresh vegetables
+            |
+            Refined oil
+            |
+            Butter price
+            |
+            Paneer price</p>
+</div>
+
+        
+</body>
+</html>
